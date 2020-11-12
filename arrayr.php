@@ -1,7 +1,7 @@
 <?php
 
 $countries = array('Belgium', 'France' , 'Germany', 'Netherlands', 'Ukraine');
-echo $countries[2];
+echo $countries[2].'<br>';
 
 $family = ["Benoit","Elodie","Vivianne","Paul"];
 print_r($family);
@@ -45,6 +45,55 @@ echo '<pre>';
 print_r($me);
 echo '</pre>';
 
-echo '<br>'. count($me['sister']['hobbies']);
-echo '<br>'. count($me['hobbies']);
-//echo '<br>'. count($me['sister']['hobbies']) + count($me['hobbies']);
+$total=0;
+
+echo '<br>'.$total += count($me['sister']['hobbies']);
+echo '<br>'.$total += count($me['hobbies']);
+
+$me['hobbies'][] = 'taxidermy';
+
+$me['lastname'] = 'Durand';
+
+echo '<pre>';
+print_r($me);
+echo '</pre>';
+
+$soulmate = array(
+    'firstname' => 'test',
+    'lastname' => 'test1',
+    'age' => 30,
+    'favourite_movies' => $favorite_movies,
+    'sister' => $sister,
+);
+$soulmate['hobbies'] = ["video games", "travel", "live streaming", "fiesta"];
+
+$kid_intersect = [];
+$kid_merge = [];
+
+$kid_intersect['hobbies'] = array_intersect($me['hobbies'], $soulmate['hobbies']);
+$kid_merge['hobbies'] = array_merge($me['hobbies'], $soulmate['hobbies']);
+
+echo '<pre>';
+print_r($kid_intersect);
+echo '</pre>';
+
+echo '<pre>';
+print_r($kid_merge);
+echo '</pre>';
+
+$web_development = array(
+    'frontend' => [],
+    'backend' => [],
+);
+
+$web_development['frontend'][] = 'XHTML';
+$web_development['backend'][] = 'Ruby on rails';
+$web_development['frontend'][] = 'CSS';
+$web_development['frontend'][] = 'Flash';
+$web_development['frontend'][] = 'Javascript';
+$web_development['frontend'] = array_replace($web_development['frontend'],array_fill_keys(array_keys($web_development['frontend'], 'XHTML'),'HTML'));
+unset($web_development['frontend'][array_search('Flash',$web_development['frontend'])]);
+
+echo '<pre>';
+print_r($web_development);
+echo '</pre>';
