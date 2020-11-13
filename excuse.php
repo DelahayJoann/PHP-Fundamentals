@@ -21,11 +21,13 @@ class Apology{
    }
 
    function generateApology(){
-        $generate = '<p style="width: 100%; text-align: right;">'.date("d m Y").'</p>';
-        $generate .= "<p style='width: 100%;'>Monsieur/Madame ".$this->teacherName.",</p>";
-        $generate .= "<p style='width: 100%;'>Veuillez excuser l'absence de ".$this->name.". ".(($this->gender=="male")? "Il" : "Elle")." ".$this->reasons[$this->reasonCategory][rand(0,count($this->reasons[$this->reasonCategory])-1)].".</p>";
-        $generate .= "<p style='width: 100%;'>Acceptez, Monsieur/Madame, mes salutations distinguées,</p>";
-        $generate .= "<p style='width: 100%;'>Un parent.</p>";
+        $generate = "<div style='border: 1px solid black'>";
+        $generate .= "<p style='width: 100%; text-align: right; padding: 15px;'>".date('d m Y')."</p>";
+        $generate .= "<p style='width: 100%;padding-left: 15px;'>Monsieur/Madame ".$this->teacherName.",</p>";
+        $generate .= "<p style='width: 100%;padding-left: 15px;'>Veuillez excuser l'absence de ".$this->name.". ".(($this->gender=="male")? "Il" : "Elle")." ".$this->reasons[$this->reasonCategory][rand(0,count($this->reasons[$this->reasonCategory])-1)].".</p>";
+        $generate .= "<p style='width: 100%;padding-left: 15px;'>Acceptez, Monsieur/Madame, mes salutations distinguées,</p>";
+        $generate .= "<p style='width: 100%;padding-left: 15px;'>Un parent.</p>";
+        $generate .= "</div>";
         return $generate;
     }
 }
