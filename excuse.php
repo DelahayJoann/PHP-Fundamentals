@@ -54,7 +54,7 @@ class Apology{
     </head>
     <Body style="width:45%;margin:auto;">
 
-        <form action="#" method="get" class="container">
+        <form action="#" method="get" class="container" style='padding: 15px; border: 1px solid black; border-bottom: 0;'>
             <div class="form-group row">
                 <label for="name" class="col-4">Kid name :</label>
                 <input type="text" class="form-control col-8" name="name" id="name">
@@ -94,3 +94,4 @@ if( isset($_GET['name'], $_GET['gender'], $_GET['teacherName'], $_GET['reasonCat
     $anApology = new Apology($_GET['name'],$_GET['gender'],$_GET['teacherName'],$_GET['reasonCategory']);
     echo $anApology->generateApology();   
 }
+?>
